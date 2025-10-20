@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>6. Priorização - My Docs</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../css/fontawesome.min.css" rel="stylesheet"/>
+<link href="../css/brands.min.css" rel="stylesheet"/>
+<link href="../css/solid.min.css" rel="stylesheet"/>
+<link href="../css/v4-font-face.min.css" rel="stylesheet"/>
+<link href="../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" id="hljs-light" rel="stylesheet"/>
+<link disabled="" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" id="hljs-dark" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="..">My Docs</a>
+<!-- Expander button -->
+<button aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar-collapse" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="..">Welcome to MkDocs</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../Vis%C3%A3o-do-Produto/">Visão do Produto</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../fishbone_vision/">1. Visão do Produto (Fishbone)</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../ml_requirements/">4. Requisitos de Machine Learning</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../mvp_definition/">7. MVP (Minimum Viable Product)</a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="./">6. Priorização</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../user_stories/">5. Histórias de Usuário (User Stories)</a>
+</li>
+</ul>
+<ul class="nav navbar-nav ms-md-auto">
+<li class="nav-item">
+<a class="nav-link" data-bs-target="#mkdocs_search_modal" data-bs-toggle="modal" href="#">
+<i class="fa fa-search"></i> Search
+                            </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../mvp_definition/" rel="prev">
+<i class="fa fa-arrow-left"></i> Previous
+                                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../user_stories/" rel="next">
+                                    Next <i class="fa fa-arrow-right"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-bs-target="#toc-collapse" data-bs-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
+</div>
+<div class="navbar-collapse collapse card bg-body-tertiary" id="toc-collapse">
+<ul class="nav flex-column">
+<li class="nav-item" data-bs-level="1"><a class="nav-link" href="#6-priorizacao">6. Priorização</a>
+<ul class="nav flex-column">
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#tecnica-utilizada-moscow-ice-score">Técnica Utilizada: MoSCoW + ICE Score</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#matriz-de-priorizacao-user-stories">Matriz de Priorização - User Stories</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#analise-por-moscow">Análise por MoSCoW</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#matriz-gut-gravidade-urgencia-tendencia">Matriz GUT (Gravidade × Urgência × Tendência)</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#roadmap-visual">Roadmap Visual</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#dependencias-entre-user-stories">Dependências Entre User Stories</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#criterios-de-decisao">Critérios de Decisão</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#trade-offs-considerados">Trade-offs Considerados</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#metricas-de-sucesso-por-fase">Métricas de Sucesso por Fase</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#revisao-de-priorizacao">Revisão de Priorização</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div></div>
+<div class="col-md-9" role="main">
+<h1 id="6-priorizacao">6. Priorização</h1>
+<h2 id="tecnica-utilizada-moscow-ice-score">Técnica Utilizada: MoSCoW + ICE Score</h2>
+<p>Combinamos duas técnicas complementares:
+- <strong>MoSCoW:</strong> Para categorização estratégica (Must/Should/Could/Won't)
+- <strong>ICE Score:</strong> Para priorização dentro de cada categoria (Impact × Confidence × Ease)</p>
+<h3 id="formula-ice-score">Fórmula ICE Score</h3>
+<pre><code>ICE Score = (Impact × Confidence × Ease) / 3
+</code></pre>
+<p>Onde cada dimensão é avaliada em escala de 1-10:
+- <strong>Impact:</strong> Valor de negócio e impacto no usuário
+- <strong>Confidence:</strong> Confiança na estimativa e nos requisitos
+- <strong>Ease:</strong> Facilidade de implementação (inverso da complexidade)</p>
+<hr/>
+<h2 id="matriz-de-priorizacao-user-stories">Matriz de Priorização - User Stories</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>MoSCoW</th>
+<th>Impact</th>
+<th>Confidence</th>
+<th>Ease</th>
+<th>ICE Score</th>
+<th>Sprint</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US001</td>
+<td>Monitoramento em Tempo Real</td>
+<td><strong>MUST</strong></td>
+<td>10</td>
+<td>9</td>
+<td>5</td>
+<td>8.0</td>
+<td>1</td>
+<td><strong>Crítico:</strong> Fundação do produto. Sem dados em tempo real, não há valor. Alto impacto, complexidade média em streaming.</td>
+</tr>
+<tr>
+<td>US003</td>
+<td>Previsão de Direção</td>
+<td><strong>MUST</strong></td>
+<td>10</td>
+<td>7</td>
+<td>4</td>
+<td>7.0</td>
+<td>3-4</td>
+<td><strong>Crítico:</strong> Core do ML. Maior diferencial competitivo. Complexidade alta mas bem definida.</td>
+</tr>
+<tr>
+<td>US015</td>
+<td>Gestão de Usuários</td>
+<td><strong>MUST</strong></td>
+<td>8</td>
+<td>9</td>
+<td>7</td>
+<td>8.0</td>
+<td>21</td>
+<td><strong>Crítico:</strong> Segurança e compliance. Tecnologia madura facilita implementação. Pode ser posterior ao MVP técnico.</td>
+</tr>
+<tr>
+<td>US016</td>
+<td>Auditoria de Decisões</td>
+<td><strong>MUST</strong></td>
+<td>9</td>
+<td>8</td>
+<td>6</td>
+<td>7.7</td>
+<td>22</td>
+<td><strong>Crítico:</strong> Requisito regulatório. Essencial para conformidade com CVM.</td>
+</tr>
+<tr>
+<td>US002</td>
+<td>Alertas de Movimentos</td>
+<td><strong>MUST</strong></td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>8.0</td>
+<td>2</td>
+<td><strong>Crítico:</strong> Funcionalidade esperada. Relativamente simples após US001.</td>
+</tr>
+<tr>
+<td>US014</td>
+<td>Analytics de Performance ML</td>
+<td><strong>MUST</strong></td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>7.0</td>
+<td>20</td>
+<td><strong>Crítico:</strong> MLOps essencial. Sem isso, modelo degrada sem detecção.</td>
+</tr>
+<tr>
+<td>US013</td>
+<td>Relatórios Automatizados</td>
+<td><strong>SHOULD</strong></td>
+<td>7</td>
+<td>8</td>
+<td>8</td>
+<td>7.7</td>
+<td>19</td>
+<td><strong>Importante:</strong> Melhora experiência, mas não bloqueia uso. Implementação direta.</td>
+</tr>
+<tr>
+<td>US004</td>
+<td>Análise de Sentimento</td>
+<td><strong>SHOULD</strong></td>
+<td>8</td>
+<td>6</td>
+<td>5</td>
+<td>6.3</td>
+<td>5</td>
+<td><strong>Importante:</strong> Diferencial competitivo. Incerteza em acurácia do NLP.</td>
+</tr>
+<tr>
+<td>US005</td>
+<td>Recomendações Personalizadas</td>
+<td><strong>SHOULD</strong></td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>7.0</td>
+<td>6</td>
+<td><strong>Importante:</strong> Aumenta adesão de usuários conservadores. Depende de US003.</td>
+</tr>
+<tr>
+<td>US007</td>
+<td>Dashboard Personalizável</td>
+<td><strong>SHOULD</strong></td>
+<td>7</td>
+<td>8</td>
+<td>6</td>
+<td>7.0</td>
+<td>9</td>
+<td><strong>Importante:</strong> Melhora UX significativamente. Poder users ativo.</td>
+</tr>
+<tr>
+<td>US008</td>
+<td>Backtesting de Estratégias</td>
+<td><strong>SHOULD</strong></td>
+<td>8</td>
+<td>7</td>
+<td>5</td>
+<td>6.7</td>
+<td>10-11</td>
+<td><strong>Importante:</strong> Validação antes de capital real. Complexidade moderada-alta.</td>
+</tr>
+<tr>
+<td>US006</td>
+<td>Consulta por Chat</td>
+<td><strong>SHOULD</strong></td>
+<td>6</td>
+<td>6</td>
+<td>5</td>
+<td>5.7</td>
+<td>7-8</td>
+<td><strong>Desejável:</strong> Legal para UX, mas não essencial. Incerteza em NLP conversacional.</td>
+</tr>
+<tr>
+<td>US009</td>
+<td>Paper Trading</td>
+<td><strong>COULD</strong></td>
+<td>7</td>
+<td>7</td>
+<td>6</td>
+<td>6.7</td>
+<td>12</td>
+<td><strong>Nice to have:</strong> Educacional. Aproveita infraestrutura existente.</td>
+</tr>
+<tr>
+<td>US010</td>
+<td>Simulação de Cenários</td>
+<td><strong>COULD</strong></td>
+<td>7</td>
+<td>6</td>
+<td>4</td>
+<td>5.7</td>
+<td>13-14</td>
+<td><strong>Nice to have:</strong> Valor para analistas de risco. Complexidade Monte Carlo.</td>
+</tr>
+<tr>
+<td>US011</td>
+<td>Criação de Estratégias Auto</td>
+<td><strong>COULD</strong></td>
+<td>9</td>
+<td>5</td>
+<td>3</td>
+<td>5.7</td>
+<td>15-17</td>
+<td><strong>Nice to have:</strong> Alto valor mas muito complexo. Visual builder é desafiador.</td>
+</tr>
+<tr>
+<td>US012</td>
+<td>Execução com Aprovação</td>
+<td><strong>COULD</strong></td>
+<td>6</td>
+<td>7</td>
+<td>6</td>
+<td>6.3</td>
+<td>18</td>
+<td><strong>Nice to have:</strong> Workflow específico. Depende de US011.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="analise-por-moscow">Análise por MoSCoW</h2>
+<h3 id="must-have-mvp-6-user-stories">MUST HAVE (MVP) - 6 User Stories</h3>
+<p><strong>Total Story Points:</strong> 83<br/>
+<strong>Sprints:</strong> 1-4, 20-22<br/>
+<strong>Duração Estimada:</strong> ~12 semanas</p>
+<p><strong>Justificativa Estratégica:</strong>
+Este conjunto representa o <strong>Produto Mínimo Viável</strong> que entrega valor core aos stakeholders:
+- ✅ Coleta e visualização de dados em tempo real (US001)
+- ✅ Predições de ML funcionais (US003)
+- ✅ Alertas proativos (US002)
+- ✅ Monitoramento de saúde do modelo (US014)
+- ✅ Segurança e auditoria (US015, US016)</p>
+<p><strong>Riscos se não implementado:</strong> Produto não é utilizável ou não atende compliance.</p>
+<hr/>
+<h3 id="should-have-release-10-6-user-stories">SHOULD HAVE (Release 1.0) - 6 User Stories</h3>
+<p><strong>Total Story Points:</strong> 91<br/>
+<strong>Sprints:</strong> 5-11, 19<br/>
+<strong>Duração Estimada:</strong> ~14 semanas</p>
+<p><strong>Justificativa Estratégica:</strong>
+Funcionalidades que diferenciam significativamente o produto da concorrência:
+- 📊 Análise multidimensional (sentimento, personalização)
+- 🎨 Experiência do usuário superior
+- 📈 Ferramentas de validação (backtesting)
+- 📄 Automação de processos repetitivos</p>
+<p><strong>Riscos se não implementado:</strong> Produto funciona mas tem baixa adesão/competitividade.</p>
+<hr/>
+<h3 id="could-have-releases-futuras-4-user-stories">COULD HAVE (Releases Futuras) - 4 User Stories</h3>
+<p><strong>Total Story Points:</strong> 113<br/>
+<strong>Sprints:</strong> 12-18<br/>
+<strong>Duração Estimada:</strong> ~14 semanas</p>
+<p><strong>Justificativa Estratégica:</strong>
+Features avançadas para usuários sofisticados:
+- 🎓 Ferramentas educacionais (paper trading)
+- 🤖 Automação completa (estratégias algorítmicas)
+- 📊 Analytics avançado (simulações)</p>
+<p><strong>Riscos se não implementado:</strong> Perda de usuários avançados para concorrentes especializados.</p>
+<hr/>
+<h2 id="matriz-gut-gravidade-urgencia-tendencia">Matriz GUT (Gravidade × Urgência × Tendência)</h2>
+<p>Análise complementar para features técnicas/infraestrutura:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Gravidade</th>
+<th>Urgência</th>
+<th>Tendência</th>
+<th>GUT Score</th>
+<th>Prioridade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Infraestrutura Tempo Real</strong></td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>1000</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td><strong>Pipeline de ML</strong></td>
+<td>10</td>
+<td>9</td>
+<td>9</td>
+<td>810</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td><strong>Segurança/Compliance</strong></td>
+<td>10</td>
+<td>8</td>
+<td>8</td>
+<td>640</td>
+<td>Crítica</td>
+</tr>
+<tr>
+<td><strong>Monitoramento/Observability</strong></td>
+<td>8</td>
+<td>9</td>
+<td>9</td>
+<td>648</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Feature Store</strong></td>
+<td>7</td>
+<td>8</td>
+<td>8</td>
+<td>448</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>API REST</strong></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>343</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Otimização de Latência</strong></td>
+<td>6</td>
+<td>6</td>
+<td>8</td>
+<td>288</td>
+<td>Média</td>
+</tr>
+<tr>
+<td><strong>Mobile App</strong></td>
+<td>5</td>
+<td>4</td>
+<td>7</td>
+<td>140</td>
+<td>Baixa</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Escala:</strong>
+- <strong>Gravidade:</strong> Impacto se não resolvido (1-10)
+- <strong>Urgência:</strong> Tempo até se tornar crítico (1-10)
+- <strong>Tendência:</strong> Probabilidade de piorar (1-10)</p>
+<hr/>
+<h2 id="roadmap-visual">Roadmap Visual</h2>
+<pre><code>═══════════════════════════════════════════════════════════════════
+                          ROADMAP 2025-2026
+═══════════════════════════════════════════════════════════════════
+
+Q1 2025 │ MVP (MUST HAVE)
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US001: Monitoramento Tempo Real ████████████░░░░░░░
+  1-2   │ US002: Alertas                  ░░░░░░░░████████░░░
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US003: Predições ML             ██████████████████░░
+  3-4   │ RML001-009: Pipeline ML         ██████████████████░░
+────────┼─────────────────────────────────────────────────────────
+
+Q2 2025 │ RELEASE 1.0 (SHOULD HAVE)
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US004: Sentimento               ████████░░░░░░░░░░░
+  5-6   │ US005: Personalização           ░░░░░░░░████████░░░
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US006: Chat                     ██████████████████░░
+  7-9   │ US007: Dashboard Custom         ░░░░░░░░░░██████████
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US008: Backtesting              ██████████████████░░
+ 10-11  │
+────────┼─────────────────────────────────────────────────────────
+
+Q3 2025 │ ADVANCED FEATURES (COULD HAVE)
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US009: Paper Trading            ████████░░░░░░░░░░░
+ 12-14  │ US010: Simulações               ░░░░░░░░██████████░░
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US011: Estratégias Auto         ██████████████████████████
+ 15-17  │                                 ░░░░░░░░░░░░░░░░░░
+────────┼─────────────────────────────────────────────────────────
+
+Q4 2025 │ GOVERNANCE &amp; POLISH
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US012: Execução c/ Aprovação    ████████░░░░░░░░░░░
+ 18-19  │ US013: Relatórios               ░░░░░░░░████████░░░
+────────┼─────────────────────────────────────────────────────────
+Sprint  │ US014: Analytics ML             ████████░░░░░░░░░░░
+ 20-22  │ US015: Gestão Usuários          ░░░░░░░░████████░░░
+        │ US016: Auditoria                ░░░░░░░░░░░░████████
+────────┼─────────────────────────────────────────────────────────
+</code></pre>
+<hr/>
+<h2 id="dependencias-entre-user-stories">Dependências Entre User Stories</h2>
+<div class="mermaid">graph TD
+    US001[US001: Tempo Real] --&gt; US002[US002: Alertas]
+    US001 --&gt; US003[US003: Predições ML]
+    US003 --&gt; US004[US004: Sentimento]
+    US003 --&gt; US005[US005: Personalização]
+    US001 --&gt; US007[US007: Dashboard]
+    US003 --&gt; US008[US008: Backtesting]
+    US008 --&gt; US009[US009: Paper Trading]
+    US008 --&gt; US010[US010: Simulações]
+    US003 --&gt; US011[US011: Estratégias]
+    US011 --&gt; US012[US012: Execução]
+    US003 --&gt; US014[US014: Analytics ML]
+
+    style US001 fill:#ff6b6b
+    style US002 fill:#ff6b6b
+    style US003 fill:#ff6b6b
+    style US014 fill:#ff6b6b
+    style US015 fill:#ff6b6b
+    style US016 fill:#ff6b6b
+</div>
+<p><strong>Legenda:</strong>
+- 🔴 Vermelho: MUST HAVE (MVP)
+- 🟡 Amarelo: SHOULD HAVE
+- 🟢 Verde: COULD HAVE</p>
+<hr/>
+<h2 id="criterios-de-decisao">Critérios de Decisão</h2>
+<h3 id="por-que-esta-priorizacao">Por que esta priorização?</h3>
+<h4 id="1-value-stream-mapping">1. Value Stream Mapping</h4>
+<p>Identificamos o fluxo de valor crítico:</p>
+<pre><code>Dados → Processamento → Predição → Decisão → Ação
+</code></pre>
+<p>Priorizamos US que completam este fluxo end-to-end primeiro.</p>
+<h4 id="2-risk-mitigation">2. Risk Mitigation</h4>
+<p>Atacamos riscos técnicos cedo:
+- <strong>Sprint 1-4:</strong> Validar streaming, ML pipeline, latência
+- Permite pivot se necessário</p>
+<h4 id="3-feedback-loops">3. Feedback Loops</h4>
+<p>MVP permite feedback real de usuários em ~3 meses:
+- Validação de hipóteses de negócio
+- Ajuste de roadmap baseado em uso real</p>
+<h4 id="4-compliance-first">4. Compliance First</h4>
+<p>US015/US016 são posteriores tecnicamente, mas críticas para go-live:
+- Podem ser desenvolvidas em paralelo
+- Bloqueantes para produção</p>
+<hr/>
+<h2 id="trade-offs-considerados">Trade-offs Considerados</h2>
+<table>
+<thead>
+<tr>
+<th>Decisão</th>
+<th>Alternativa Descartada</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MoSCoW + ICE</td>
+<td>Apenas MoSCoW</td>
+<td>ICE adiciona granularidade numérica</td>
+</tr>
+<tr>
+<td>Chat como SHOULD</td>
+<td>Chat como MUST</td>
+<td>UX legal, mas não core value</td>
+</tr>
+<tr>
+<td>Automação como COULD</td>
+<td>Automação como MUST</td>
+<td>Alta complexidade, nicho específico</td>
+</tr>
+<tr>
+<td>US015/US016 no fim</td>
+<td>Segurança desde Sprint 1</td>
+<td>Pode ser implementado em paralelo ao MVP técnico</td>
+</tr>
+<tr>
+<td>Backtesting antes de Paper Trading</td>
+<td>Inverter ordem</td>
+<td>Backtesting valida estratégias antes de simulação</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="metricas-de-sucesso-por-fase">Métricas de Sucesso por Fase</h2>
+<h3 id="mvp-must-have">MVP (MUST HAVE)</h3>
+<ul>
+<li>✅ Sistema processa dados com &lt; 1s latência</li>
+<li>✅ Modelo atinge 70%+ acurácia</li>
+<li>✅ 10 usuários beta conseguem operar</li>
+<li>✅ Zero incidentes de segurança</li>
+<li>✅ 100% das decisões auditáveis</li>
+</ul>
+<h3 id="release-10-should-have">Release 1.0 (SHOULD HAVE)</h3>
+<ul>
+<li>✅ NPS &gt; 50</li>
+<li>✅ 100+ usuários ativos</li>
+<li>✅ 80% dos usuários usam personalização</li>
+<li>✅ Backtests mostram consistência do modelo</li>
+<li>✅ Tempo médio na plataforma &gt; 30min/dia</li>
+</ul>
+<h3 id="advanced-features-could-have">Advanced Features (COULD HAVE)</h3>
+<ul>
+<li>✅ 20+ estratégias automatizadas criadas</li>
+<li>✅ Paper trading com Sharpe &gt; 1.0</li>
+<li>✅ 50% dos power users usam simulações</li>
+<li>✅ Redução de 40% em tempo de análise</li>
+</ul>
+<hr/>
+<h2 id="revisao-de-priorizacao">Revisão de Priorização</h2>
+<p><strong>Frequência:</strong> Bimestral (a cada 4 sprints)</p>
+<p><strong>Triggers para repriorização:</strong>
+- Mudança regulatória urgente
+- Feedback crítico de usuários
+- Descoberta técnica que invalida premissas
+- Movimento competitivo significativo
+- Mudança de estratégia da empresa</p>
+<p><strong>Responsáveis:</strong>
+- Product Owner (decisão final)
+- Tech Lead (viabilidade técnica)
+- Stakeholders (validação de valor)</p>
+<hr/>
+<p><em>Última atualização: [Data]</em><br/>
+<em>Próxima revisão: [Data + 2 meses]</em><br/>
+<em>Aprovado por: [Product Owner]</em></p></div>
+</div>
+</div>
+<footer class="col-md-12">
+<hr/>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+</footer>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script src="../js/base.js"></script>
+<script src="../search/main.js"></script>
+<div aria-hidden="true" aria-labelledby="searchModalLabel" class="modal" id="mkdocs_search_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="searchModalLabel">Search</h4>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<p>From here you can search these documents. Enter your search terms below.</p>
+<form>
+<div class="form-group">
+<input class="form-control" id="mkdocs-search-query" placeholder="Search..." title="Type search term here" type="search"/>
+</div>
+</form>
+<div data-no-results-text="No results found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

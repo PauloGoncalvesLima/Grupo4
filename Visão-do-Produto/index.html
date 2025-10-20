@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Visão do Produto - My Docs</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../css/fontawesome.min.css" rel="stylesheet"/>
+<link href="../css/brands.min.css" rel="stylesheet"/>
+<link href="../css/solid.min.css" rel="stylesheet"/>
+<link href="../css/v4-font-face.min.css" rel="stylesheet"/>
+<link href="../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" id="hljs-light" rel="stylesheet"/>
+<link disabled="" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" id="hljs-dark" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="..">My Docs</a>
+<!-- Expander button -->
+<button aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar-collapse" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="..">Welcome to MkDocs</a>
+</li>
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="./">Visão do Produto</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../fishbone_vision/">1. Visão do Produto (Fishbone)</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../ml_requirements/">4. Requisitos de Machine Learning</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../mvp_definition/">7. MVP (Minimum Viable Product)</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../prioritization/">6. Priorização</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../user_stories/">5. Histórias de Usuário (User Stories)</a>
+</li>
+</ul>
+<ul class="nav navbar-nav ms-md-auto">
+<li class="nav-item">
+<a class="nav-link" data-bs-target="#mkdocs_search_modal" data-bs-toggle="modal" href="#">
+<i class="fa fa-search"></i> Search
+                            </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href=".." rel="prev">
+<i class="fa fa-arrow-left"></i> Previous
+                                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../fishbone_vision/" rel="next">
+                                    Next <i class="fa fa-arrow-right"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-bs-target="#toc-collapse" data-bs-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
+</div>
+<div class="navbar-collapse collapse card bg-body-tertiary" id="toc-collapse">
+<ul class="nav flex-column">
+<li class="nav-item" data-bs-level="1"><a class="nav-link" href="#1-visao-do-produto-fishbone">1. Visão do Produto (Fishbone)</a>
+<ul class="nav flex-column">
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#diagrama-de-ishikawa-fishbone">Diagrama de Ishikawa (Fishbone)</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#visao-do-produto">Visão do Produto</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#diagrama-fishbone-ishikawa-mermaid">Diagrama Fishbone (Ishikawa) - Mermaid</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+<li class="nav-item" data-bs-level="2"><a class="nav-link" href="#metricas-de-sucesso">Métricas de Sucesso</a>
+<ul class="nav flex-column">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div></div>
+<div class="col-md-9" role="main">
+<p>+++
+date = '2025-10-20T00:37:30-03:00'
+draft = true
+title = 'Visão Do Produto'
++++</p>
+<h1 id="1-visao-do-produto-fishbone">1. Visão do Produto (Fishbone)</h1>
+<h2 id="diagrama-de-ishikawa-fishbone">Diagrama de Ishikawa (Fishbone)</h2>
+<h3 id="problema-principal">Problema Principal</h3>
+<p><strong>A análise humana de dados de mercado é lenta e sujeita a vieses, dificultando decisões rápidas e precisas em mercados voláteis.</strong></p>
+<h3 id="analise-de-causas-raiz">Análise de Causas Raiz</h3>
+<h4 id="modelos-de-ml">📊 Modelos de ML</h4>
+<p><strong>Causa:</strong> Modelos de ML não otimizados para velocidade de inferência
+- Falta de otimização para processamento em tempo real
+- Algoritmos complexos com alta latência
+- Ausência de técnicas de compressão de modelos</p>
+<h4 id="infraestrutura">🏗️ Infraestrutura</h4>
+<p><strong>Causa:</strong> Infraestrutura inadequada para processamento em tempo real
+- Recursos computacionais limitados
+- Ausência de arquitetura distribuída
+- Falta de cache e otimizações de I/O
+- Sistemas legados não escaláveis</p>
+<h4 id="conhecimento-tecnico">🎓 Conhecimento Técnico</h4>
+<p><strong>Causa:</strong> Falta de conhecimento técnico em ciência de dados ou trading algorítmico
+- Equipe com conhecimento limitado em ML aplicado a finanças
+- Ausência de expertise em engenharia de features financeiras
+- Falta de domínio em análise quantitativa</p>
+<h4 id="processos-operacionais">⚙️ Processos Operacionais</h4>
+<p><strong>Causa:</strong> Estratégias mal implementadas com baixa eficiência operacional
+- Dependência excessiva de análise manual
+- Processos não automatizados
+- Falta de pipelines de dados estruturados
+- Ausência de monitoramento contínuo</p>
+<h4 id="qualidade-dos-dados">📈 Qualidade dos Dados</h4>
+<p><strong>Causa:</strong> Atrasos na geração de insights por dados desatualizados
+- Latência elevada no acompanhamento de dados ao vivo
+- Risco elevado de decisões baseadas em informações obsoletas
+- Falta de streaming de dados em tempo real
+- Problemas de sincronização entre fontes</p>
+<hr/>
+<h2 id="visao-do-produto">Visão do Produto</h2>
+<h3 id="o-que-e">O que é?</h3>
+<p>Uma plataforma inteligente de análise de mercado financeiro que utiliza Machine Learning para automatizar a análise de dados em tempo real, fornecendo insights acionáveis e reduzindo vieses humanos em decisões de trading.</p>
+<h3 id="para-quem-e">Para quem é?</h3>
+<ul>
+<li><strong>Traders profissionais</strong> que operam em mercados voláteis</li>
+<li><strong>Investidores institucionais</strong> que necessitam de análise rápida e precisa</li>
+<li><strong>Instituições financeiras</strong> que buscam automação e redução de risco</li>
+</ul>
+<h3 id="qual-dor-resolve">Qual dor resolve?</h3>
+<h4 id="problema-de-negocio">Problema de Negócio</h4>
+<p>Traders, investidores e instituições financeiras que operam em mercados voláteis enfrentam:
+- ⏱️ <strong>Lentidão na análise:</strong> Perda de oportunidades de lucro e aumento de risco
+- 🧠 <strong>Vieses humanos:</strong> Decisões influenciadas por emoções e vieses cognitivos
+- 📉 <strong>Informações desatualizadas:</strong> Alto risco de decisões baseadas em dados obsoletos</p>
+<h4 id="impactos">Impactos</h4>
+<ul>
+<li>💰 Perda de oportunidades de lucro em mercados de alta volatilidade</li>
+<li>⚠️ Aumento de risco por decisões tardias ou imprecisas</li>
+<li>📊 Decisões influenciadas por vieses humanos em vez de dados objetivos</li>
+</ul>
+<h4 id="solucao-proposta">Solução Proposta</h4>
+<p>Um sistema de ML que processa dados de mercado em tempo real, identificando padrões, gerando alertas automáticos e fornecendo recomendações baseadas em dados, permitindo:
+- Decisões mais rápidas e precisas
+- Redução de vieses através de análise objetiva
+- Monitoramento contínuo e alertas proativos
+- Automação de estratégias de trading</p>
+<hr/>
+<h2 id="diagrama-fishbone-ishikawa-mermaid">Diagrama Fishbone (Ishikawa) - Mermaid</h2>
+<div class="mermaid">%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
+graph LR
+    %% Problema Principal
+    Problem["&lt;b&gt;PROBLEMA PRINCIPAL&lt;/b&gt;&lt;br/&gt;A análise humana de dados&lt;br/&gt;de mercado é lenta e sujeita&lt;br/&gt;a vieses, dificultando decisões&lt;br/&gt;rápidas e precisas em&lt;br/&gt;mercados voláteis"]
+
+    %% Categoria 1: Modelos de ML
+    ML1["Modelos de ML não&lt;br/&gt;otimizados para&lt;br/&gt;velocidade de inferência"]
+    ML1_1["Falta de otimização&lt;br/&gt;para tempo real"]
+    ML1_2["Algoritmos complexos&lt;br/&gt;com alta latência"]
+    ML1_3["Ausência de técnicas&lt;br/&gt;de compressão"]
+
+    %% Categoria 2: Infraestrutura
+    Infra1["Infraestrutura inadequada&lt;br/&gt;para processamento&lt;br/&gt;em tempo real"]
+    Infra1_1["Recursos&lt;br/&gt;computacionais&lt;br/&gt;limitados"]
+    Infra1_2["Ausência de&lt;br/&gt;arquitetura&lt;br/&gt;distribuída"]
+    Infra1_3["Falta de cache&lt;br/&gt;e otimizações&lt;br/&gt;de I/O"]
+
+    %% Categoria 3: Conhecimento Técnico
+    Know1["Falta de conhecimento&lt;br/&gt;técnico em ciência&lt;br/&gt;de dados ou trading&lt;br/&gt;algorítmico"]
+    Know1_1["Equipe com&lt;br/&gt;conhecimento&lt;br/&gt;limitado em ML&lt;br/&gt;financeiro"]
+    Know1_2["Ausência de&lt;br/&gt;expertise em&lt;br/&gt;features&lt;br/&gt;financeiras"]
+    Know1_3["Falta de domínio&lt;br/&gt;em análise&lt;br/&gt;quantitativa"]
+
+    %% Categoria 4: Processos Operacionais
+    Proc1["Estratégias mal&lt;br/&gt;implementadas com&lt;br/&gt;baixa eficiência&lt;br/&gt;operacional"]
+    Proc1_1["Dependência&lt;br/&gt;excessiva de&lt;br/&gt;análise manual"]
+    Proc1_2["Processos não&lt;br/&gt;automatizados"]
+    Proc1_3["Ausência de&lt;br/&gt;monitoramento&lt;br/&gt;contínuo"]
+
+    %% Categoria 5: Qualidade dos Dados
+    Data1["Atrasos na geração&lt;br/&gt;de insights por&lt;br/&gt;dados desatualizados"]
+    Data1_1["Latência elevada&lt;br/&gt;no acompanhamento&lt;br/&gt;de dados ao vivo"]
+    Data1_2["Alto risco de&lt;br/&gt;decisões baseadas&lt;br/&gt;em info obsoletas"]
+    Data1_3["Falta de streaming&lt;br/&gt;de dados em&lt;br/&gt;tempo real"]
+
+    %% Conexões - Lado Superior (Modelos ML e Infraestrutura)
+    ML1_1 --&gt; ML1
+    ML1_2 --&gt; ML1
+    ML1_3 --&gt; ML1
+    ML1 --&gt; Problem
+
+    Infra1_1 --&gt; Infra1
+    Infra1_2 --&gt; Infra1
+    Infra1_3 --&gt; Infra1
+    Infra1 --&gt; Problem
+
+    %% Conexões - Centro (Conhecimento)
+    Know1_1 --&gt; Know1
+    Know1_2 --&gt; Know1
+    Know1_3 --&gt; Know1
+    Know1 --&gt; Problem
+
+    %% Conexões - Lado Inferior (Processos e Dados)
+    Proc1_1 --&gt; Proc1
+    Proc1_2 --&gt; Proc1
+    Proc1_3 --&gt; Proc1
+    Proc1 --&gt; Problem
+
+    Data1_1 --&gt; Data1
+    Data1_2 --&gt; Data1
+    Data1_3 --&gt; Data1
+    Data1 --&gt; Problem
+
+    %% Estilos
+    classDef problemStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:3px,color:#fff,font-weight:bold
+    classDef categoryStyle fill:#4dabf7,stroke:#1971c2,stroke-width:2px,color:#fff,font-weight:bold
+    classDef causeStyle fill:#ffd43b,stroke:#f59f00,stroke-width:1px,color:#000
+
+    class Problem problemStyle
+    class ML1,Infra1,Know1,Proc1,Data1 categoryStyle
+    class ML1_1,ML1_2,ML1_3,Infra1_1,Infra1_2,Infra1_3,Know1_1,Know1_2,Know1_3,Proc1_1,Proc1_2,Proc1_3,Data1_1,Data1_2,Data1_3 causeStyle
+</div>
+<h3 id="legenda-do-diagrama">Legenda do Diagrama</h3>
+<ul>
+<li>🔴 <strong>Vermelho (Centro):</strong> Problema Principal</li>
+<li>🔵 <strong>Azul:</strong> Categorias de Causas Raiz (5 principais)</li>
+<li>🟡 <strong>Amarelo:</strong> Subcausas específicas (3 por categoria)</li>
+</ul>
+<hr/>
+<h2 id="metricas-de-sucesso">Métricas de Sucesso</h2>
+<h3 id="objetivos-quantitativos">Objetivos Quantitativos</h3>
+<ul>
+<li>⚡ Reduzir tempo de análise de minutos para segundos (&lt; 5s)</li>
+<li>🎯 Acurácia de previsões &gt; 75% em condições de mercado normal</li>
+<li>📊 Redução de 40% em decisões baseadas em vieses humanos</li>
+<li>🔄 Processamento de dados em tempo real com latência &lt; 1s</li>
+</ul>
+<h3 id="objetivos-qualitativos">Objetivos Qualitativos</h3>
+<ul>
+<li>Aumentar confiança dos traders nas decisões automatizadas</li>
+<li>Melhorar experiência do usuário com interface intuitiva</li>
+<li>Estabelecer transparência nos processos de decisão do modelo</li>
+</ul>
+<hr/>
+<p><em>Última atualização: [Data]</em>
+<em>Autores/Team: [Completar]</em></p></div>
+</div>
+</div>
+<footer class="col-md-12">
+<hr/>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+</footer>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script src="../js/base.js"></script>
+<script src="../search/main.js"></script>
+<div aria-hidden="true" aria-labelledby="searchModalLabel" class="modal" id="mkdocs_search_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="searchModalLabel">Search</h4>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<p>From here you can search these documents. Enter your search terms below.</p>
+<form>
+<div class="form-group">
+<input class="form-control" id="mkdocs-search-query" placeholder="Search..." title="Type search term here" type="search"/>
+</div>
+</form>
+<div data-no-results-text="No results found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

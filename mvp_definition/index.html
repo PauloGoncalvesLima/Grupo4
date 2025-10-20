@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>7. MVP (Minimum Viable Product) - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../Vis%C3%A3o-do-Produto/" class="nav-link">Visão do Produto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../fishbone_vision/" class="nav-link">1. Visão do Produto (Fishbone)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../ml_requirements/" class="nav-link">4. Requisitos de Machine Learning</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">7. MVP (Minimum Viable Product)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../prioritization/" class="nav-link">6. Priorização</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../user_stories/" class="nav-link">5. Histórias de Usuário (User Stories)</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../ml_requirements/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../prioritization/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#7-mvp-minimum-viable-product" class="nav-link">7. MVP (Minimum Viable Product)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#definicao-do-mvp" class="nav-link">Definição do MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#user-stories-incluidas-no-mvp" class="nav-link">User Stories Incluídas no MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#o-que-nao-esta-no-mvp" class="nav-link">O que NÃO está no MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#increments-futuros-roadmap" class="nav-link">Increments Futuros (Roadmap)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cronograma-detalhado-do-mvp" class="nav-link">Cronograma Detalhado do MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cronograma-visual" class="nav-link">Cronograma Visual</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recursos-necessarios-para-mvp" class="nav-link">Recursos Necessários para MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#criterios-de-sucesso-do-mvp" class="nav-link">Critérios de Sucesso do MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#riscos-do-mvp" class="nav-link">Riscos do MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#definicao-de-pronto-dod-para-mvp" class="nav-link">Definição de "Pronto" (DoD) para MVP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="7-mvp-minimum-viable-product">7. MVP (Minimum Viable Product)</h1>
+<h2 id="definicao-do-mvp">Definição do MVP</h2>
+<h3 id="visao-do-mvp">Visão do MVP</h3>
+<p><strong>Um sistema funcional de análise de mercado com ML que permite traders visualizar dados em tempo real, receber alertas automáticos e obter predições sobre direção de preços, com infraestrutura auditável e segura.</strong></p>
+<h3 id="objetivo-do-mvp">Objetivo do MVP</h3>
+<p>Validar as seguintes hipóteses críticas:
+1. ✅ <strong>Hipótese Técnica:</strong> Conseguimos processar dados de mercado com latência &lt; 1s
+2. ✅ <strong>Hipótese de ML:</strong> Modelo atinge 70%+ de acurácia em predições de direção
+3. ✅ <strong>Hipótese de Valor:</strong> Traders pagam por análises automatizadas em tempo real
+4. ✅ <strong>Hipótese de UX:</strong> Interface é suficientemente intuitiva para uso sem treinamento extenso</p>
+<hr />
+<h2 id="user-stories-incluidas-no-mvp">User Stories Incluídas no MVP</h2>
+<h3 id="us001-monitoramento-em-tempo-real-sprint-1">✅ US001 - Monitoramento em Tempo Real (Sprint 1)</h3>
+<p><strong>Por quê no MVP:</strong> Base fundamental. Sem dados em tempo real, não há produto.</p>
+<p><strong>Entregáveis:</strong>
+- Dashboard com atualização automática (&lt; 1s refresh)
+- Visualização de OHLCV para até 10 ativos
+- Indicadores técnicos básicos: SMA, EMA, RSI, MACD
+- Histórico de 24 horas</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] Latência end-to-end &lt; 1 segundo (p95)
+- [ ] Zero perda de dados durante 8h de operação contínua
+- [ ] 5 usuários conseguem usar simultaneamente</p>
+<hr />
+<h3 id="us002-alertas-de-movimentos-sprint-2">✅ US002 - Alertas de Movimentos (Sprint 2)</h3>
+<p><strong>Por quê no MVP:</strong> Funcionalidade esperada básica. Demonstra valor imediato.</p>
+<p><strong>Entregáveis:</strong>
+- Configuração de alertas por threshold (% ou valor absoluto)
+- Notificações via email e push notification
+- Histórico dos últimos 7 dias de alertas</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] Alerta dispara em &lt; 5 segundos após evento
+- [ ] Taxa de falsos positivos &lt; 5%
+- [ ] Histórico persiste corretamente</p>
+<hr />
+<h3 id="us003-previsao-de-direcao-sprint-3-4">✅ US003 - Previsão de Direção (Sprint 3-4)</h3>
+<p><strong>Por quê no MVP:</strong> Core value proposition. Diferencial competitivo principal.</p>
+<p><strong>Entregáveis:</strong>
+- Modelo de classificação UP/DOWN/NEUTRAL
+- Confidence score para cada predição
+- Atualização de predições a cada 5 minutos
+- Visualização de acurácia histórica (última 24h)</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] Acurácia ≥ 70% em dados de teste
+- [ ] Latência de inferência &lt; 500ms
+- [ ] Explicação básica (top 3 features) disponível</p>
+<hr />
+<h3 id="us014-analytics-de-performance-ml-sprint-20">✅ US014 - Analytics de Performance ML (Sprint 20)</h3>
+<p><strong>Por quê no MVP:</strong> Essencial para MLOps. Detecta degradação do modelo.</p>
+<p><strong>Entregáveis:</strong>
+- Dashboard com métricas básicas: accuracy, precision, recall
+- Alertas quando acurácia cai &gt; 10%
+- Gráfico de acurácia ao longo do tempo</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] Métricas atualizam a cada hora
+- [ ] Alertas funcionam corretamente
+- [ ] Dados retidos por 30 dias</p>
+<hr />
+<h3 id="us015-gestao-de-usuarios-sprint-21">✅ US015 - Gestão de Usuários (Sprint 21)</h3>
+<p><strong>Por quê no MVP:</strong> Requisito de segurança básico. Bloqueante para produção.</p>
+<p><strong>Entregáveis:</strong>
+- Autenticação via email/senha
+- 2 perfis: Admin e Trader
+- Logs de auditoria de login</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] Autenticação segura (bcrypt/JWT)
+- [ ] Sessões expiram após 30min inatividade
+- [ ] Admin pode criar/desativar usuários</p>
+<hr />
+<h3 id="us016-auditoria-de-decisoes-sprint-22">✅ US016 - Auditoria de Decisões (Sprint 22)</h3>
+<p><strong>Por quê no MVP:</strong> Compliance básico. Essencial para regulatório.</p>
+<p><strong>Entregáveis:</strong>
+- Log de todas as predições com timestamp
+- Busca por data e ativo
+- Exportação em CSV</p>
+<p><strong>Critério de Aceitação MVP:</strong>
+- [ ] 100% das predições são logadas
+- [ ] Logs são imutáveis
+- [ ] Busca retorna resultados em &lt; 2s</p>
+<hr />
+<h2 id="o-que-nao-esta-no-mvp">O que NÃO está no MVP</h2>
+<h3 id="funcionalidades-excluidas-e-por-que">🚫 Funcionalidades Excluídas (e Por Quê)</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Motivo da Exclusão</th>
+<th>Quando Incluir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentimento de Notícias (US004)</td>
+<td>Incerteza técnica em acurácia NLP</td>
+<td>Release 1.0 - Sprint 5</td>
+</tr>
+<tr>
+<td>Dashboard Customizável (US007)</td>
+<td>Nice-to-have UX, não core value</td>
+<td>Release 1.0 - Sprint 9</td>
+</tr>
+<tr>
+<td>Chat Interface (US006)</td>
+<td>Complexidade vs valor no MVP</td>
+<td>Release 1.0 - Sprint 7-8</td>
+</tr>
+<tr>
+<td>Backtesting (US008)</td>
+<td>Validação pode ser feita offline inicialmente</td>
+<td>Release 1.0 - Sprint 10-11</td>
+</tr>
+<tr>
+<td>Paper Trading (US009)</td>
+<td>Feature educacional, não bloqueante</td>
+<td>Release 2.0 - Sprint 12</td>
+</tr>
+<tr>
+<td>Automação Completa (US011)</td>
+<td>Muito complexo, nicho específico</td>
+<td>Release 3.0 - Sprint 15+</td>
+</tr>
+<tr>
+<td>Mobile App Nativo</td>
+<td>Desktop web suficiente para MVP</td>
+<td>Backlog futuro</td>
+</tr>
+<tr>
+<td>Múltiplos Modelos de ML</td>
+<td>Modelo único bem calibrado suficiente</td>
+<td>Post-MVP após validação</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="increments-futuros-roadmap">Increments Futuros (Roadmap)</h2>
+<h3 id="release-10-q2-2025-enhanced-experience">🎯 Release 1.0 (Q2 2025) - "Enhanced Experience"</h3>
+<p><strong>Objetivo:</strong> Ampliar capacidades analíticas e melhorar UX</p>
+<p><strong>Features:</strong>
+- Análise de sentimento de notícias
+- Recomendações personalizadas por perfil de risco
+- Dashboard customizável
+- Chat para consultas
+- Backtesting de estratégias
+- Relatórios automatizados</p>
+<p><strong>Métricas de Sucesso:</strong>
+- 100+ usuários ativos mensais
+- NPS &gt; 50
+- Churn &lt; 10%/mês</p>
+<hr />
+<h3 id="release-20-q3-2025-advanced-analytics">🚀 Release 2.0 (Q3 2025) - "Advanced Analytics"</h3>
+<p><strong>Objetivo:</strong> Ferramentas para usuários avançados</p>
+<p><strong>Features:</strong>
+- Paper trading em tempo real
+- Simulações de Monte Carlo
+- Multiple timeframes (1min, 5min, 15min, 1h)
+- Análise de correlação entre ativos
+- Portfolio optimization suggestions</p>
+<p><strong>Métricas de Sucesso:</strong>
+- 30% dos usuários são power users
+- Tempo médio na plataforma &gt; 45min/dia
+- 50+ estratégias em backtesting</p>
+<hr />
+<h3 id="release-30-q4-2025-automation">🤖 Release 3.0 (Q4 2025) - "Automation"</h3>
+<p><strong>Objetivo:</strong> Automação completa de trading</p>
+<p><strong>Features:</strong>
+- Builder visual de estratégias
+- Execução automatizada com limites
+- Integração com brokers (API)
+- Webhook para sistemas externos
+- Advanced risk management</p>
+<p><strong>Métricas de Sucesso:</strong>
+- 20+ estratégias automatizadas ativas
+- Volume de operações automatizadas &gt; R$ 1M/mês
+- Win rate médio &gt; 55%</p>
+<hr />
+<h2 id="cronograma-detalhado-do-mvp">Cronograma Detalhado do MVP</h2>
+<h3 id="fase-1-fundacao-sprints-1-2-4-semanas">Fase 1: Fundação (Sprints 1-2) - 4 semanas</h3>
+<p><strong>Objetivo:</strong> Infraestrutura de dados e visualização básica</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Atividades</th>
+<th>Responsável</th>
+<th>Entregáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Setup infraestrutura (Kafka, Redis, PostgreSQL)</td>
+<td>DevOps</td>
+<td>Ambiente provisionado</td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Implementar ingestão de dados</td>
+<td>Data Eng</td>
+<td>Pipeline de dados funcional</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Desenvolver dashboard básico</td>
+<td>Frontend</td>
+<td>Visualização OHLCV</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sistema de alertas</td>
+<td>Backend</td>
+<td>Alertas por email</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Milestone:</strong> ✅ Dados fluindo em tempo real com visualização</p>
+<hr />
+<h3 id="fase-2-machine-learning-sprints-3-4-4-semanas">Fase 2: Machine Learning (Sprints 3-4) - 4 semanas</h3>
+<p><strong>Objetivo:</strong> Modelo preditivo em produção</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Atividades</th>
+<th>Responsável</th>
+<th>Entregáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>Feature engineering pipeline</td>
+<td>Data Science</td>
+<td>35+ features calculadas</td>
+</tr>
+<tr>
+<td>3-4</td>
+<td>Treinamento de modelos (XGBoost, LSTM)</td>
+<td>Data Science</td>
+<td>Modelos com accuracy &gt; 70%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>API de inferência</td>
+<td>MLOps</td>
+<td>Endpoint com latência &lt; 500ms</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Integração frontend-backend</td>
+<td>Full Stack</td>
+<td>Predições na UI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Milestone:</strong> ✅ Predições funcionando em tempo real</p>
+<hr />
+<h3 id="fase-3-mlops-sprint-20-2-semanas">Fase 3: MLOps (Sprint 20) - 2 semanas</h3>
+<p><strong>Objetivo:</strong> Monitoramento e observabilidade</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Atividades</th>
+<th>Responsável</th>
+<th>Entregáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>Dashboard de métricas ML</td>
+<td>Data Science</td>
+<td>Grafana dashboards</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Alertas de degradação</td>
+<td>MLOps</td>
+<td>Alerting system</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Milestone:</strong> ✅ Modelo monitorado continuamente</p>
+<hr />
+<h3 id="fase-4-governance-sprints-21-22-4-semanas">Fase 4: Governance (Sprints 21-22) - 4 semanas</h3>
+<p><strong>Objetivo:</strong> Segurança e compliance</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Atividades</th>
+<th>Responsável</th>
+<th>Entregáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21</td>
+<td>Sistema de autenticação</td>
+<td>Backend</td>
+<td>OAuth2 + JWT</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Gestão de permissões</td>
+<td>Backend</td>
+<td>RBAC implementado</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Sistema de auditoria</td>
+<td>Backend</td>
+<td>Logs imutáveis</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Documentação compliance</td>
+<td>Compliance</td>
+<td>Relatório de conformidade</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Milestone:</strong> ✅ Sistema pronto para produção com compliance</p>
+<hr />
+<h3 id="fase-5-testes-e-ajustes-sprint-23-2-semanas">Fase 5: Testes e Ajustes (Sprint 23) - 2 semanas</h3>
+<p><strong>Objetivo:</strong> Validação completa e go-live</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Atividades</th>
+<th>Responsável</th>
+<th>Entregáveis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>Testes de carga</td>
+<td>QA</td>
+<td>Relatório de performance</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Beta testing com 10 usuários</td>
+<td>Product</td>
+<td>Feedback documentado</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Correções críticas</td>
+<td>Dev Team</td>
+<td>Bugs resolvidos</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Preparação go-live</td>
+<td>DevOps</td>
+<td>Runbook de produção</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Milestone:</strong> ✅ MVP pronto para lançamento</p>
+<hr />
+<h2 id="cronograma-visual">Cronograma Visual</h2>
+<pre><code>══════════════════════════════════════════════════════════════════════
+                      MVP TIMELINE - 16 SEMANAS
+══════════════════════════════════════════════════════════════════════
+
+Mês 1-2 │ FUNDAÇÃO + ML
+────────┼─────────────────────────────────────────────────────────────
+ Sem 1  │ ████████ Infra Setup + Data Ingestion
+ Sem 2  │ ████████ Dashboard + Alerts
+ Sem 3  │ ████████ Feature Engineering
+ Sem 4  │ ████████ ML Training + API
+────────┼─────────────────────────────────────────────────────────────
+
+Mês 5-6 │ MLOPS + GOVERNANCE
+────────┼─────────────────────────────────────────────────────────────
+ Sem 20 │ ████████ MLOps Monitoring
+ Sem 21 │ ████████ Authentication + RBAC
+ Sem 22 │ ████████ Audit System
+ Sem 23 │ ████████ Testing + Go-Live Prep
+────────┼─────────────────────────────────────────────────────────────
+
+        🚀 LAUNCH MVP
+══════════════════════════════════════════════════════════════════════
+</code></pre>
+<p><strong>Nota:</strong> Sprints 5-19 serão usados para releases futuras (Release 1.0)</p>
+<hr />
+<h2 id="recursos-necessarios-para-mvp">Recursos Necessários para MVP</h2>
+<h3 id="time-minimo">Time Mínimo</h3>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Alocação</th>
+<th>Sprints Críticos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product Owner</td>
+<td>50%</td>
+<td>Todos</td>
+</tr>
+<tr>
+<td>Tech Lead</td>
+<td>100%</td>
+<td>1-4</td>
+</tr>
+<tr>
+<td>Data Engineer</td>
+<td>100%</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td>Data Scientist (Senior)</td>
+<td>100%</td>
+<td>3-4, 20</td>
+</tr>
+<tr>
+<td>Backend Developer</td>
+<td>100%</td>
+<td>2, 21-22</td>
+</tr>
+<tr>
+<td>Frontend Developer</td>
+<td>100%</td>
+<td>2, 4</td>
+</tr>
+<tr>
+<td>MLOps Engineer</td>
+<td>50%</td>
+<td>4, 20</td>
+</tr>
+<tr>
+<td>DevOps Engineer</td>
+<td>50%</td>
+<td>1, 23</td>
+</tr>
+<tr>
+<td>QA Engineer</td>
+<td>50%</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> ~6.5 FTEs durante MVP</p>
+<hr />
+<h3 id="infraestrutura">Infraestrutura</h3>
+<table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Especificação</th>
+<th>Custo Mensal (est.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compute</strong></td>
+<td>4x m5.2xlarge (AWS)</td>
+<td>$2,400</td>
+</tr>
+<tr>
+<td><strong>GPU</strong></td>
+<td>1x p3.2xlarge (treino)</td>
+<td>$1,200</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>RDS PostgreSQL (db.r5.xlarge)</td>
+<td>$600</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>ElastiCache Redis</td>
+<td>$300</td>
+</tr>
+<tr>
+<td><strong>Streaming</strong></td>
+<td>MSK (Kafka) 3 brokers</td>
+<td>$800</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>S3 + EBS</td>
+<td>$500</td>
+</tr>
+<tr>
+<td><strong>APIs</strong></td>
+<td>Market data feeds</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>DataDog/New Relic</td>
+<td>$400</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total MVP:</strong> ~$9,200/mês</p>
+<hr />
+<h2 id="criterios-de-sucesso-do-mvp">Critérios de Sucesso do MVP</h2>
+<h3 id="metricas-tecnicas">Métricas Técnicas</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Target</th>
+<th>Medição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latência de dados</td>
+<td>&lt; 1s (p95)</td>
+<td>Logs de sistema</td>
+</tr>
+<tr>
+<td>Latência de inferência</td>
+<td>&lt; 500ms (p95)</td>
+<td>APM</td>
+</tr>
+<tr>
+<td>Uptime</td>
+<td>&gt; 99%</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>Acurácia do modelo</td>
+<td>&gt; 70%</td>
+<td>Métricas ML</td>
+</tr>
+<tr>
+<td>Taxa de erro</td>
+<td>&lt; 0.1%</td>
+<td>Error tracking</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metricas-de-produto">Métricas de Produto</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Target</th>
+<th>Medição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuários beta ativos</td>
+<td>10+</td>
+<td>Analytics</td>
+</tr>
+<tr>
+<td>Sessões por usuário/semana</td>
+<td>&gt; 5</td>
+<td>Analytics</td>
+</tr>
+<tr>
+<td>Tempo médio de sessão</td>
+<td>&gt; 15min</td>
+<td>Analytics</td>
+</tr>
+<tr>
+<td>NPS (beta users)</td>
+<td>&gt; 30</td>
+<td>Survey</td>
+</tr>
+<tr>
+<td>Bugs críticos</td>
+<td>0</td>
+<td>Issue tracker</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metricas-de-negocio">Métricas de Negócio</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Target</th>
+<th>Medição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conversão beta → pago</td>
+<td>&gt; 50%</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>Willingness to pay</td>
+<td>&gt; $100/mês</td>
+<td>Survey</td>
+</tr>
+<tr>
+<td>Churn beta users</td>
+<td>&lt; 20%</td>
+<td>Analytics</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="riscos-do-mvp">Riscos do MVP</h2>
+<table>
+<thead>
+<tr>
+<th>Risco</th>
+<th>Probabilidade</th>
+<th>Impacto</th>
+<th>Mitigação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latência &gt; 1s</td>
+<td>Média</td>
+<td>Alto</td>
+<td>Load testing antecipado, otimizações</td>
+</tr>
+<tr>
+<td>Acurácia &lt; 70%</td>
+<td>Média</td>
+<td>Crítico</td>
+<td>Baseline estabelecido, múltiplos algoritmos</td>
+</tr>
+<tr>
+<td>API de dados instável</td>
+<td>Alta</td>
+<td>Alto</td>
+<td>Fallback providers, cache agressivo</td>
+</tr>
+<tr>
+<td>Falta de usuários beta</td>
+<td>Baixa</td>
+<td>Médio</td>
+<td>Pipeline de early adopters preparado</td>
+</tr>
+<tr>
+<td>Requisito regulatório novo</td>
+<td>Baixa</td>
+<td>Alto</td>
+<td>Legal review antecipado</td>
+</tr>
+<tr>
+<td>Dívida técnica acumulada</td>
+<td>Alta</td>
+<td>Médio</td>
+<td>Code reviews, refactoring contínuo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="definicao-de-pronto-dod-para-mvp">Definição de "Pronto" (DoD) para MVP</h2>
+<p>✅ <strong>Código:</strong>
+- [ ] Code review aprovado por 2+ desenvolvedores
+- [ ] Cobertura de testes &gt; 70%
+- [ ] Sem vulnerabilidades críticas (Snyk/SonarQube)
+- [ ] Documentação técnica atualizada</p>
+<p>✅ <strong>Funcionalidade:</strong>
+- [ ] Todas as US do MVP implementadas
+- [ ] Critérios de aceitação validados
+- [ ] Testes end-to-end passando
+- [ ] Performance dentro dos targets</p>
+<p>✅ <strong>Deploy:</strong>
+- [ ] Deploy automatizado funcional (CI/CD)
+- [ ] Rollback testado e funcional
+- [ ] Monitoring e alertas configurados
+- [ ] Runbook documentado</p>
+<p>✅ <strong>Negócio:</strong>
+- [ ] 10 usuários beta recrutados
+- [ ] Treinamento básico preparado
+- [ ] Suporte inicial estruturado
+- [ ] Pricing model validado</p>
+<hr />
+<p><em>Data de Launch Target MVP: [Data + 16 semanas]</em><br />
+<em>Responsável: [Product Owner]</em><br />
+<em>Aprovação Stakeholders: [Pendente/Aprovado]</em></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
